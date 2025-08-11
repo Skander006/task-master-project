@@ -1,0 +1,324 @@
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes removed{
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+@keyframes completed{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.7;
+    }
+}
+
+@keyframes line{
+    0%{
+        text-decoration: none;
+    }
+    100%{
+        text-decoration: line-through;
+    }
+}
+.fade-in{
+    animation: fade 1s ease-in-out;
+}
+.removed{
+    animation: removed 0.8s ease-in-out;
+}
+.completed{
+    animation: completed 0.8s ease;
+    opacity: 0.7;
+}
+.line-through{
+    animation: line 0.8s ease-in-out;
+    text-decoration: line-through;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html,body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body{
+    background-color: #f9f9f9;
+    color: #2b2b2b;
+    font-family: "Poppins",sans-serif;
+}
+
+
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100vh;
+    background: url("hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.name{
+    font-size: 3rem;
+    color: #1f1f1f;
+    letter-spacing: 2px;
+}
+.description{
+    font-size: 17px;
+    font-style: italic;
+}
+.start-button{
+    padding: 18px 38px;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 18px;
+    font-size: 16px;
+    background-color: rgb(136, 36, 8);
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+.start-button:hover{
+    background-color: rgb(103, 28, 7);
+}
+.start-button:active{
+    opacity: 0.7;
+}
+.adding-page{
+    display: none;
+}
+
+main{
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+    min-height: 100vh;
+}
+main .list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background-color: rgb(253, 235, 222);
+    border-radius: 22px;
+}
+
+.barre{
+    height: 4px;
+    width: 80px;
+    background-color: #bbb;
+    border-radius: 12px;
+}
+.todo-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 120px;    
+}
+main .list ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.button-container{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.text-container{
+    text-align: left;
+}
+.todo-item{
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.todo-description{
+    text-align: left;
+}
+.adding-page h2{
+    text-align: left;
+}
+.todo{
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    gap: 20px;
+    border-radius: 12px;
+    width: 100%;
+}
+.rightDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.check-btn{
+    padding: 8px 12px;
+    background-color: #dfdfdf;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.check-btn:hover{
+    background-color: green;
+}
+
+.remove-btn{
+     padding: 8px 12px;
+    background-color: #dfdfdf;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.remove-btn:hover{
+    background-color: rgb(199, 3, 3);
+}
+.add{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(1, 95, 1);
+    color: #ddd;
+    border: none;
+    border-radius: 50px;
+    font-size: 24px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.15s ease;
+}
+.add:hover{
+    background-color: rgb(1, 69, 1);
+}
+.add:active{
+    opacity: 0.7;
+}
+.adding-page{
+    text-align: center;
+    padding: 150px;
+    margin: 80px auto;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 2px 8px 16px rgba(0,0,0,0.1);
+    background-color: #fffbfb;
+    border-radius: 30px;
+}
+.adding-page input{
+    width: 400px;
+    padding: 16px;
+    border: 1px solid gray;
+    border-radius: 16px;
+}
+.adding-page textarea{
+    width: 500px;
+    min-height: 16vh;
+    resize: none;
+    border: 1px solid gray;
+    border-radius: 16px;
+    padding: 16px;
+}
+.adding-page input, .adding-page textarea,#category,#priority{
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    transition: border-color 0.6s ease;
+    outline: none;
+}
+.adding-page input:focus, .adding-page textarea:focus,#category:focus, #priority:focus{
+    border-color: brown;
+}
+#category,#priority{
+    width: 300px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+#task-date{
+    width: 200px;
+    cursor: pointer;
+}
+.label{
+    text-align: left;
+}
+.add-button{
+    padding: 16px 28px;
+    background-color: rgb(180, 67, 36);
+    color: #ddd;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.15s ease;
+}
+.add-button:hover{
+    background-color: rgb(135, 48, 24);
+}
+.add-button:active{
+    opacity: 0.7;
+}
+.adding-page{
+    display: none;
+}
+
+@media screen and (max-width : 768px){
+    .adding-page{
+        padding: 80px;
+        max-width: 600px;
+    }
+    .adding-page input{
+        width: 230px;
+        font-size: 14px;
+    }
+    .adding-page textarea{
+        width: 260px;
+    }
+    #category, #priority{
+        width: 200px;
+    }
+    .description{
+        text-align: center;
+    }
+    .todo{
+        gap: 20px;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+    
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TaskMaster</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <header>
+            <div class="hero">
+                <h1 class="name">TaskMaster</h1>
+                <p class="description">The ultimate to-do app to take control of your day and crush your goals!</p>
+                <a href="#adding-page"><button id="start-button" class="start-button">Start Now</button></a>
+            </div>
+        </header>
+        <div class="adding-page" id="adding-page">
+            <h2>Add a Task...</h2>
+            <input type="text" placeholder="Task Name..." id="task-name" class="task-name">
+            <textarea name="task-description" id="task-description" placeholder="Description..."></textarea>
+            <div class="label">
+                <label for="category">Task Category :</label>
+            </div>
+            <select name="category" id="category">
+                <option value=""></option>
+                <option value="Home">Home</option>
+                <option value="Work">Work</option>
+                <option value="Fun">Fun</option>
+                <option value="Sport">Sport</option>
+                <option value="Social">Social</option>
+            </select>
+            <div class="label">
+                <label for="priority">Task Priority :</label>
+            </div>
+            <select name="priority" id="priority">
+                <option value=""></option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <div class="label">
+                <label for="task-date">Date :</label>
+            </div>
+            <input type="date" id="task-date" class="task-date">
+            <div>
+                <button class="add-button" id="add-button">Add Task</button>
+            </div>
+        </div>
+
+        <main id="main">
+            <section class="list">
+                <h3>Your Tasks for today</h3>
+                <div class="barre"></div>
+                <ul class="todo-list" id="todo-list">
+                    <!--The list for today-->
+                </ul>
+            </section>
+
+            <section class="list">
+                <h3>Your unfinished tasks</h3>
+                <div class="barre"></div>
+                <ul class="todo-list" id="todo-unfinished">
+                    <!--The unfinished tasks-->
+                </ul>
+            </section>
+
+            <section class="list">
+                <h3>Your future tasks</h3>
+                <div class="barre"></div>
+                <ul class="todo-list" id="todo-future">
+                    <!--The future tasks-->
+                </ul>
+            </section>
+        </main>
+        <div class="add-div">
+            <a href="#adding-page"><button class="add" id="add">+</button></a>
+        </div>
+        
+        
+        <script src="script.js"></script>
+    </body>
+</html>
