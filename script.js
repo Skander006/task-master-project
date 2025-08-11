@@ -98,14 +98,18 @@ function addTask(e){
     saveToDoLocal({text : taskName.value, description : taskDescription.value, category : category.value, priority : priority.value, date : taskDate.value, completed : false});
 
     //append to lists
-    const today = new Date().toISOString("T");
-    if (taskDate.value == today || taskDate.value<today){
-        todoList.appendChild(todoDiv);
-        todoDiv.classList.add("fade-in");
-    } else{
-        todoFuture.appendChild(todoDiv);
-        todoDiv.classList.add("fade-in");
-    }
+    const today = new Date().toISOString().split("T")[0];
+    if (taskDate.value === today){
+            todoList.appendChild(todoDiv);
+            todoDiv.classList.add("fade-in");
+        } else if (taskDate.value <today){
+            todoUnfinished.appendChild(todoDiv);
+            todoDiv.classList.add("fade-in")
+        } else{
+            todoFuture.appendChild(todoDiv);
+            todoDiv.classList.add("fade-in");
+        }
+        
 
     //priority css
 
@@ -142,7 +146,7 @@ function handleClick(e){
     } else if (item.classList.contains("remove-btn")){
         parent.classList.add("removed");
         removeTodo(parent);
-        parent.addEventListener("transitionend",()=>parent.remove());
+        parent.addEventListener("animationend",()=>parent.remove());
     }
 }
 
@@ -199,19 +203,19 @@ function loadTasks(e){
 
         todoDiv.appendChild(rightDiv);
 
-        const today = new Date().toISOString("T");
-        if (!todo.completed){
-            todoUnfinished.appendChild(todoDiv);
-        } else{
-            if (todo.date === today || todo.date<today){
+        const today = new Date().toISOString().split("T")[0];
+        
+        if (todo.date === today){
             todoList.appendChild(todoDiv);
             todoDiv.classList.add("fade-in");
-        
+        } else if (todo.date <today){
+            todoUnfinished.appendChild(todoDiv);
+            todoDiv.classList.add("fade-in")
         } else{
             todoFuture.appendChild(todoDiv);
             todoDiv.classList.add("fade-in");
         }
-        }
+        
         
 
         
